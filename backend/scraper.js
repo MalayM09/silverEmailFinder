@@ -1,7 +1,6 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const iconv = require('iconv-lite');
-const { URL } = require('url');
 const fs = require('fs');
 const csvWriter = require('csv-write-stream');
 
