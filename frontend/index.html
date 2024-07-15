@@ -6,14 +6,28 @@
     <title>Silver Email Finder | STTL</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="assets/silvertouch_img.png">
-    <script data-main="script" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+    <!-- Load RequireJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+    <script>
+        // Configure RequireJS
+        requirejs.config({
+            paths: {
+                'axios': 'https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min' // Adjust the path as needed
+            }
+        });
+
+        // Load script.js after configuring RequireJS
+        require(['script'], function() {
+            console.log('script.js loaded');
+        });
+    </script>
 </head>
 <body>
     <header>
         <nav>
             <div class="left">
                 <div class="logo">
-                    <img src="assets/silvertouch_img.png" alt="img">
+                    <img src="assets/silvertouch_img.png" alt="Silvertouch Logo">
                 </div>
                 <div class="navbar">
                     <ul>
@@ -26,25 +40,23 @@
                 </div>
             </div>
             <div class="registration">
-                <span class="login"><a href="#" target="_blank">Log In</a></span>
+                <span class="login"><a href="login.html">Log In</a></span>
                 <button class="btn">Sign Up</button>
             </div>
         </nav>
     </header>
     <div class="separation"></div>
     <section class="main">
-        <div class="box1">
+        <div class="box1"> 
             <span><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 40 40"><rect width="40" height="40" fill="#715EED" rx="10"></rect><path fill="#fff" fill-rule="evenodd" d="M29.582 29.582a1.429 1.429 0 0 0 0-2.02l-2.798-2.798a9.243 9.243 0 0 0 1.787-5.478 9.286 9.286 0 1 0-9.285 9.286 9.244 9.244 0 0 0 5.478-1.788l2.797 2.798a1.429 1.429 0 0 0 2.02 0Zm-10.296-3.867a6.429 6.429 0 1 0 0-12.858 6.429 6.429 0 0 0 0 12.858Z" clip-rule="evenodd"></path></svg>Find any email. Anywhere.</span>
             <span>Email Finder</span>
         </div>
-        <div class="box2">
+        <div class="box2">               
             <span>Your perfect lead is a click away. Let's find them.</span>
-            <div class="container">
-                <form id="findEmailForm">
-                    <input type="text" id="companyInput" placeholder="companyname.com">
-                    <button type="submit" id="findEmailsBtn">Find emails</button>
-                </form>
-            </div>
+            <div class="container">                             
+                <input type="text" id="nameInput" name="name" placeholder="companyname.com">
+                <button id="execute_btn">Find emails</button>
+            </div> 
         </div>
         <div class="box3">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="#7357EB" d="M5.4 4.2a1.2 1.2 0 0 0-1.2 1.2v2.7a.9.9 0 0 1-1.8 0V5.4a3 3 0 0 1 3-3h2.7a.9.9 0 0 1 0 1.8H5.4Zm0 15.6a1.2 1.2 0 0 1-1.2-1.2v-2.7a.9.9 0 0 0-1.8 0v2.7a3 3 0 0 0 3 3h2.7a.9.9 0 1 0 0-1.8H5.4ZM19.8 5.4a1.2 1.2 0 0 0-1.2-1.2h-2.7a.9.9 0 0 1 0-1.8h2.7a3 3 0 0 1 3 3v2.7a.9.9 0 1 1-1.8 0V5.4Zm-1.2 14.4a1.2 1.2 0 0 0 1.2-1.2v-2.7a.9.9 0 1 1 1.8 0v2.7a3 3 0 0 1-3 3h-2.7a.9.9 0 1 1 0-1.8h2.7ZM6.9 8.1a.9.9 0 0 1 .9-.9h8.4a.9.9 0 0 1 .9.9v1.2a.9.9 0 1 1-1.8 0V9h-2.4v6h.3a.9.9 0 1 1 0 1.8h-2.4a.9.9 0 1 1 0-1.8h.3V9H8.7v.3a.9.9 0 0 1-1.8 0V8.1Z"></path></svg>
@@ -55,16 +67,14 @@
         <div class="one">
             <span>Find emails by domain</span>
             <p>Find all email addresses on any domain in a matter of minutes. The Silver Email Finder streamlines the process of finding all email addresses on any website, saving your time and effort. It efficiently and accurately extracts contact information, ensuring you never miss an email. Perfect for lead generation, outreach, and networking, our tool automates this task, allowing you to focus on what matters most.</p>
-            <img src="" alt="img">                                             <!--Insert an image of the working of the extension made-->
         </div>
         <div class="two">
             <div class="firstline">
-                <img src="assets/emailfinder_img.png" alt="img">
+                <img src="assets/emailfinder_img.png" alt="Silver Email Finder">
                 <span>Silver Email Finder</span>
             </div>
             <span class="secondline">Find emails on company websites and Google</span>
-            <!-- No need to link Python or any executable here -->
-            <img src="" alt="img">                                              <!--Insert an image of the working of the extension made-->
+            <div><a href="back-end/scraper.py" target="_blank">Install Extension</a></div>
         </div>
     </section>
     <div class="end"></div>
@@ -88,4 +98,26 @@
             <a href="https://www.silvertouch.com/digital-transformation/data-analytics/">Big Data</a>
             <a href="https://www.silvertouch.com/technologies/java-frameworks/">Java</a>
             <a href="https://www.silvertouch.com/digital-transformation/applied-ai/">AI, ML & Data Science</a>
-            <a href="https://www.silvertouch.com
+            <a href="https://www.silvertouch.com/enterprise-software-services/asynchronous-messaging/">Asynchronous Messaging</a>
+        </div>
+        <div class="footer-items">
+            <span>Other</span>
+            <a href="https://www.silvertouch.com/portfolio/">Portfolio</a>
+            <a href="https://www.silvertouch.com/techlab-live-training-projects/">TechLab</a>
+            <a href="https://www.silvertouch.com/investors/">Investors</a>
+        </div>
+        <div class="footer-items">
+            <span>About</span>
+            <a href="https://www.silvertouch.com/company-overview/">Company Overview</a>
+            <a href="https://www.silvertouch.com/about-us/industries-exposure/">Industries Exposure</a>
+            <a href="https://www.silvertouch.com/about-us/awards/">Awards</a>
+            <a href="https://www.silvertouch.com/about-us/case-studies/">Case Studies</a>
+            <a href="https://www.silvertouch.com/about-us/csr-policy/">CSR Policy</a>
+            <a href="https://www.silvertouch.com/about-us/news-events/">News & Events</a>
+            <a href="https://www.silvertouch.com/blog/">Blog</a>
+        </div>
+    </footer>
+    <!-- Load your custom script.js -->
+    <script src="script.js"></script>
+</body>
+</html>
