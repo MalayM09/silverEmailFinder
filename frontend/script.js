@@ -1,35 +1,39 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const findEmailForm = document.getElementById('findEmailForm');
+console.log("Scripting for Chrome Extension");
 
-    findEmailForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
+document.querySelector(".btn").addEventListener("click", ()=>{
+    window.location.href = "http://127.0.0.1:3000/SilverTouch/login.html";
+})
 
-        const companyInput = document.getElementById('companyInput');
-        const companyName = companyInput.value.trim();
+function runScraper(){
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "back-end/scraper.js";
+    document.getElementsByTagName("head")[0].appendChild(script);
+    return false;
+}
 
-        if (!companyName) {
-            alert('Please enter a valid company domain.');
-            return;
-        }
 
-        // Update this URL to your backend's URL
-        const backendUrl = 'https://your-backend-url.com/scrape';
+//Scripting for input box
+function onGetEmailsClick(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+    console.log("Get Emails button was clicked!");
+    let webSourceName = "";
+    webSourceName = document.getElementById("nameInput").value;
+    console.log("Web Source Name stored in variable, its value=", webSourceName);
+    //Write code for running the scraper.js
+    runScraper();
+}
 
-        fetch(backendUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ url: companyName })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Emails extracted:', data); // Handle response from backend
-            // Display or process extracted emails as needed
-        })
-        .catch(error => {
-            console.error('Error extracting emails:', error);
-            // Handle errors gracefully
-        });
-    });
-});
+// Add event listener to the submit button
+const getEmailsButton = document.getElementById("execute_btn");
+getEmailsButton.addEventListener("click", onGetEmailsClick);
+
+
+
+
+/*
+//Write code for running the executable file of .js format
+var oShell = new ActiveXObject("Shell.Application");
+var commandtoRun = "C:\\Windows\\notepad.exe";      //Path of .exe
+oShell.ShellExecute(commandtoRun,"","","open","1");
+*/
