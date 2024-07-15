@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 *{
     padding: 0;
     margin: 0;
@@ -283,7 +282,7 @@ nav .registration{
     font-size: 15px;
     color: rgb(25, 36, 53);
 }
-.two > :nth-last-child(2){
+.two > :nth-last-child(1){
     background-color: rgb(115, 88, 235);
     color: rgb(255, 255, 255);
     padding: 10px;
@@ -293,11 +292,11 @@ nav .registration{
     text-align: center;
     cursor: pointer;
 }
-.two > :nth-last-child(2) a{
+.two > :nth-last-child(1) a{
     text-decoration: none;
     color: rgb(255, 255, 255);
 }
-body:has(.two > :nth-last-child(2):hover) .two{
+body:has(.two > :nth-last-child(1):hover) .two{
     background-color: rgb(231, 229, 243);
     border: 2px solid rgb(115, 88, 235);
 }
