@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Endpoint to receive URL and initiate scraping
 app.post('/scrape', async (req, res) => {
     const { url } = req.body;
 
@@ -18,7 +19,7 @@ app.post('/scrape', async (req, res) => {
     }
 
     try {
-        await scraper(url);
+        await scraper(url); // Initiate scraping process
         const emails = readEmailsFromCSV(); // Read emails from CSV after scraping
         res.json({ success: true, message: 'Emails extracted successfully.', emails });
     } catch (error) {
@@ -27,8 +28,9 @@ app.post('/scrape', async (req, res) => {
     }
 });
 
+// Function to read emails from CSV
 function readEmailsFromCSV() {
-    const csvFilePath = './emails.csv'; // Assuming 'emails.csv' is saved in the same directory
+    const csvFilePath = path.join(__dirname, 'emails.csv');
     const csvData = fs.readFileSync(csvFilePath, 'utf8');
     const records = csvParse(csvData, { columns: true });
     return records.map(record => record.Email);
